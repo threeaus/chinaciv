@@ -3,8 +3,7 @@
 // console.info and skipped, so an extension can be left out without breaking the app. A failing install() is logged
 // as an error and does not stop the others. Modules are fetched in parallel and installed in list order.
 // layers/: static map layers (expressways, rail, airports, ports, wonders) and their toggles.
-// Phase 1 ships no advisors dashboard (usaciv's ext/advisors was US-specific and English; a port is a phase-2 idea).
-const MODULES = ["./cityView/index.js", "./layers/index.js"];
+const MODULES = ["./cityView/index.js", "./layers/index.js", "./advisors/index.js", "./timeline/index.js", "./counties/index.js"];
 
 export async function installExtensions(app, list = MODULES) {
   const loads = list.map((spec) => import(spec).then((m) => ({ m }), (err) => ({ err })));

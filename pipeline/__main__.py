@@ -120,7 +120,7 @@ def helper_files(module_file: Path, seen: set[Path] | None = None) -> set[Path]:
 
 
 def is_stale(mod: ModuleType) -> bool:
-    """True unless every PRODUCES output exists and is newer than all REQUIRES interims and the code."""
+    """True if outputs are missing or older than their data inputs or the builder code."""
     outs = [output_path(p) for p in mod.PRODUCES]
     if not outs or not all(p.exists() for p in outs):
         return True
@@ -128,6 +128,7 @@ def is_stale(mod: ModuleType) -> bool:
     if not all(p.exists() for p in inputs):
         return True  # let build() fail with its own clear message
     inputs += helper_files(Path(mod.__file__))
+    inputs += [p for p in getattr(mod, "LOCAL_INPUTS", []) if p.is_file()]
     return max((p.stat().st_mtime for p in inputs), default=0) >= min(p.stat().st_mtime for p in outs)
 
 

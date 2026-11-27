@@ -1,0 +1,132 @@
+{
+  "sources": {
+    "urban_pct": "https://www.stats.gov.cn/sj/ndsj/2024/html/C02-07.jpg",
+    "income_pc": "https://www.stats.gov.cn/sj/ndsj/2025/html/C06-18.jpg"
+  },
+  "provinces": {
+    "11": {
+      "urban_pct": 87.83,
+      "income_pc": 81752
+    },
+    "12": {
+      "urban_pct": 85.49,
+      "income_pc": 51271
+    },
+    "13": {
+      "urban_pct": 62.77,
+      "income_pc": 32903
+    },
+    "14": {
+      "urban_pct": 64.97,
+      "income_pc": 30924
+    },
+    "15": {
+      "urban_pct": 69.58,
+      "income_pc": 38130
+    },
+    "21": {
+      "urban_pct": 73.51,
+      "income_pc": 37992
+    },
+    "22": {
+      "urban_pct": 64.73,
+      "income_pc": 29797
+    },
+    "23": {
+      "urban_pct": 67.11,
+      "income_pc": 29694
+    },
+    "31": {
+      "urban_pct": 89.46,
+      "income_pc": 84834
+    },
+    "32": {
+      "urban_pct": 75.04,
+      "income_pc": 52674
+    },
+    "33": {
+      "urban_pct": 74.23,
+      "income_pc": 63830
+    },
+    "34": {
+      "urban_pct": 61.51,
+      "income_pc": 34893
+    },
+    "35": {
+      "urban_pct": 71.04,
+      "income_pc": 45426
+    },
+    "36": {
+      "urban_pct": 63.13,
+      "income_pc": 34242
+    },
+    "37": {
+      "urban_pct": 65.53,
+      "income_pc": 39890
+    },
+    "41": {
+      "urban_pct": 58.08,
+      "income_pc": 29933
+    },
+    "42": {
+      "urban_pct": 65.47,
+      "income_pc": 35146
+    },
+    "43": {
+      "urban_pct": 61.16,
+      "income_pc": 35895
+    },
+    "44": {
+      "urban_pct": 75.42,
+      "income_pc": 49327
+    },
+    "45": {
+      "urban_pct": 56.78,
+      "income_pc": 29514
+    },
+    "46": {
+      "urban_pct": 62.46,
+      "income_pc": 33192
+    },
+    "50": {
+      "urban_pct": 71.67,
+      "income_pc": 37595
+    },
+    "51": {
+      "urban_pct": 59.49,
+      "income_pc": 32514
+    },
+    "52": {
+      "urban_pct": 55.94,
+      "income_pc": 27098
+    },
+    "53": {
+      "urban_pct": 52.92,
+      "income_pc": 28421
+    },
+    "54": {
+      "urban_pct": 38.88,
+      "income_pc": 28983
+    },
+    "61": {
+      "urban_pct": 65.16,
+      "income_pc": 32128
+    },
+    "62": {
+      "urban_pct": 55.49,
+      "income_pc": 25011
+    },
+    "63": {
+      "urban_pct": 62.8,
+      "income_pc": 28587
+    },
+    "64": {
+      "urban_pct": 67.31,
+      "income_pc": 31604
+    },
+    "65": {
+      "urban_pct": 59.24,
+      "income_pc": 28947
+    }
+  }
+}

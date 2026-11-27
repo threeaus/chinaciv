@@ -1,0 +1,148 @@
+{
+  "year": 2025,
+  "airport_rule": "香港、澳门、台湾地区的机场由各地发布机构补录，入选门槛为年旅客吞吐量至少 100 万人次，旅客统计按各发布机构口径。",
+  "port_rule": "香港、澳门地区海港统计及台湾地区七个国际商港另行补录。货物吞吐量以公吨计。澳门海路货柜货物单列，香港和澳门以典型港区标点。",
+  "airports": [
+    {
+      "id": "HKG", "name": "香港国际机场", "city": "香港", "lon": 113.914862, "lat": 22.311840,
+      "state": "81", "cbsa": "810000", "year": 2025,
+      "passengers": 60992000, "cargo_t": 5070000, "movements": 394730,
+      "publisher": "香港机场管理局",
+      "source": "https://www.hongkongairport.com/sc/media-centre/press-release/2026/pr_1849",
+      "position_source": "https://ourairports.com/airports/vhhh/",
+      "notes": "采用新闻稿附件《2025 年 12 月香港国际机场临时民用航空交通统计》的过去 12 个月合计。旅客及货量取整至千，起降架次取整至五。"
+    },
+    {
+      "id": "TPE", "name": "台湾桃园国际机场", "city": "桃园", "lon": 121.233, "lat": 25.0777,
+      "state": "71", "cbsa": "710300", "year": 2025,
+      "passengers": 47795969, "cargo_t": 2499898.508, "movements": 262217,
+      "publisher": "台湾地区交通主管部门民用航空局",
+      "source": "https://www.caa.gov.tw/FileAtt.ashx?id=39663&lang=1",
+      "position_source": "https://ourairports.com/airports/RCTP/",
+      "notes": "2025 年各机场营运量。旅客含入境、出境和转机旅客，货运含邮货及按表下注释计入的转口货物。"
+    },
+    {
+      "id": "MFM", "name": "澳门国际机场", "city": "澳门", "lon": 113.592, "lat": 22.1496,
+      "state": "82", "cbsa": "820000", "year": 2025,
+      "passengers": 7521344, "passengers_prev": 7641495, "cargo_t": 109000, "movements": 58196,
+      "publisher": "澳门国际机场专营股份有限公司",
+      "source": "https://www.camacau.com/zh/OurBusiness/TrafficStatsPassengers/1000",
+      "cargo_source": "https://www.camacau.com/en/MediaCentre/PressRoom/32658",
+      "position_source": "https://ourairports.com/airports/VMMC/",
+      "notes": "旅客量与升降量采机场月度统计的全年合计。年度新闻稿货运量取整至千公吨。"
+    },
+    {
+      "id": "KHH", "name": "高雄国际机场", "city": "高雄", "lon": 120.3500, "lat": 22.5771,
+      "state": "71", "cbsa": "710600", "year": 2025,
+      "passengers": 6971162, "cargo_t": 53442.683, "movements": 59057,
+      "publisher": "台湾地区交通主管部门民用航空局",
+      "source": "https://www.caa.gov.tw/FileAtt.ashx?id=39663&lang=1",
+      "position_source": "https://ourairports.com/airports/RCKH/"
+    },
+    {
+      "id": "TSA", "name": "台北松山机场", "city": "台北", "lon": 121.552822, "lat": 25.067244,
+      "state": "71", "cbsa": "710100", "year": 2025,
+      "passengers": 5624611, "cargo_t": 43589.040, "movements": 52022,
+      "publisher": "台湾地区交通主管部门民用航空局",
+      "source": "https://www.caa.gov.tw/FileAtt.ashx?id=39663&lang=1",
+      "position_source": "https://ourairports.com/airports/RCSS/"
+    },
+    {
+      "id": "RMQ", "name": "台中国际机场", "city": "台中", "lon": 120.621, "lat": 24.2647,
+      "state": "71", "cbsa": "710400", "year": 2025,
+      "passengers": 2758195, "cargo_t": 1806.356, "movements": 27235,
+      "publisher": "台湾地区交通主管部门民用航空局",
+      "source": "https://www.caa.gov.tw/FileAtt.ashx?id=39663&lang=1",
+      "position_source": "https://ourairports.com/airports/RCMQ/"
+    },
+    {
+      "id": "MZG", "name": "澎湖机场", "city": "澎湖", "lon": 119.628, "lat": 23.5687,
+      "state": "71", "cbsa": null, "year": 2025,
+      "passengers": 2401323, "cargo_t": 5621.550, "movements": 35946,
+      "publisher": "台湾地区交通主管部门民用航空局",
+      "source": "https://www.caa.gov.tw/FileAtt.ashx?id=39663&lang=1",
+      "position_source": "https://ourairports.com/airports/RCQC/"
+    },
+    {
+      "id": "KNH", "name": "金门机场", "city": "金门", "lon": 118.359, "lat": 24.4279,
+      "state": "35", "cbsa": null, "year": 2025,
+      "passengers": 2149727, "cargo_t": 7145.009, "movements": 27882,
+      "publisher": "台湾地区交通主管部门民用航空局",
+      "source": "https://www.caa.gov.tw/FileAtt.ashx?id=39663&lang=1",
+      "position_source": "https://ourairports.com/airports/RCBS/",
+      "notes": "统计归入发布部门覆盖范围，地图使用机场实际经纬度。"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hong-kong", "name": "香港港", "lon": 114.125, "lat": 22.337,
+      "state": "81", "cbsa": "810000", "year": 2025, "cargo_t": 169637000, "teu": 12995000,
+      "publisher": "香港海事处、政府统计处",
+      "source": "https://www.mardep.gov.hk/filemanager/en/share/fact/pdf/portstat_ast_2025.pdf",
+      "position_source": "https://www.mardep.gov.hk/filemanager/en/share/pub-services/pdf/vts_kccs.pdf",
+      "notes": "香港港全港合计，地图定位为葵青港区的代表点。"
+    },
+    {
+      "id": "kaohsiung", "name": "高雄港", "lon": 120.25694, "lat": 22.61694,
+      "state": "71", "cbsa": "710600", "year": 2025,
+      "cargo_t": 98653906, "foreign_t": 89386016, "teu": 8885854.75,
+      "publisher": "台湾港务股份有限公司",
+      "source": "https://www.twport.com.tw/fapi/AttFile?id=15889&l=1&type=AttFile",
+      "position_source": "https://www.twport.com.tw/zh-tw/business/PortInfo?a=512"
+    },
+    {
+      "id": "taichung", "name": "台中港", "lon": 120.51694, "lat": 24.29,
+      "state": "71", "cbsa": "710400", "year": 2025,
+      "cargo_t": 64154621, "foreign_t": 59320603, "teu": 1590768.25,
+      "publisher": "台湾港务股份有限公司",
+      "source": "https://www.twport.com.tw/fapi/AttFile?id=15889&l=1&type=AttFile",
+      "position_source": "https://www.twport.com.tw/zh-tw/business/PortInfo?a=317"
+    },
+    {
+      "id": "taipei", "name": "台北港", "lon": 121.35806, "lat": 25.16361,
+      "state": "71", "cbsa": "710200", "year": 2025,
+      "cargo_t": 23294714, "foreign_t": 16077534, "teu": 1463657.75,
+      "publisher": "台湾港务股份有限公司",
+      "source": "https://www.twport.com.tw/fapi/AttFile?id=15889&l=1&type=AttFile",
+      "position_source": "https://www.twport.com.tw/business/PortInfo?a=521"
+    },
+    {
+      "id": "keelung", "name": "基隆港", "lon": 121.73958, "lat": 25.15736,
+      "state": "71", "cbsa": null, "year": 2025,
+      "cargo_t": 15191462, "foreign_t": 11393723, "teu": 1603563.25,
+      "publisher": "台湾港务股份有限公司",
+      "source": "https://www.twport.com.tw/fapi/AttFile?id=15889&l=1&type=AttFile",
+      "position_source": "https://www.twport.com.tw/zh-tw/business/PortInfo?a=311"
+    },
+    {
+      "id": "hualien", "name": "花莲港", "lon": 121.62639, "lat": 23.98639,
+      "state": "71", "cbsa": null, "year": 2025, "cargo_t": 8197056, "foreign_t": 2737017, "teu": null,
+      "publisher": "台湾港务股份有限公司",
+      "source": "https://www.twport.com.tw/fapi/AttFile?id=15889&l=1&type=AttFile",
+      "position_source": "https://www.twport.com.tw/business/PortInfo?a=518"
+    },
+    {
+      "id": "anping", "name": "安平港", "lon": 120.165, "lat": 22.96917,
+      "state": "71", "cbsa": "710500", "year": 2025, "cargo_t": 3776515, "foreign_t": 589001, "teu": 2270,
+      "publisher": "台湾港务股份有限公司",
+      "source": "https://www.twport.com.tw/fapi/AttFile?id=15889&l=1&type=AttFile",
+      "position_source": "https://www.twport.com.tw/zh-tw/business/PortInfo?a=527"
+    },
+    {
+      "id": "suao", "name": "苏澳港", "lon": 121.87333, "lat": 24.59611,
+      "state": "71", "cbsa": null, "year": 2025, "cargo_t": 3669266, "foreign_t": 2545873, "teu": 4,
+      "publisher": "台湾港务股份有限公司",
+      "source": "https://www.twport.com.tw/fapi/AttFile?id=15889&l=1&type=AttFile",
+      "position_source": "https://www.twport.com.tw/zh-tw/business/PortInfo?a=524"
+    },
+    {
+      "id": "macao", "name": "澳门港", "lon": 113.5849, "lat": 22.1342,
+      "state": "82", "cbsa": "820000", "year": 2025, "cargo_t": null, "container_cargo_t": 187090, "teu": 120205,
+      "publisher": "澳门统计暨普查局、澳门新闻局",
+      "source": "https://yearbook.gcs.gov.mo/yearbook_pdf/2026/myb2026cAP36.pdf",
+      "cargo_source": "https://www.gcs.gov.mo/news/detail/en/N26AdgsUHJ",
+      "position_source": "https://www.marine.gov.mo/download_form.aspx?a_id=1746154210",
+      "notes": "澳门海路货柜合计，含进口、出口和转口。187,090 公吨仅为货柜货物重量。地图定位为九澳港区的代表点。"
+    }
+  ]
+}

@@ -40,9 +40,12 @@ from ..core.hexgrid import HexGrid
 from ..core.store import load_interim, load_interim_payload, write_web
 from . import growth
 from .yields import YIELD_KEYS, choose_bases, coverage, yield_defs, yields_of
+from .phase2_stats import (DATA, apply_census_definitions, apply_employment, census, employment_yields,
+                           population_sources, supplement_city)
 
 REQUIRES = ["_world", "cn_boundaries", "cn_stats_city", "cn_city_industry"]
 PRODUCES = ["cities.json", "nation.json"]
+LOCAL_INPUTS = [DATA / "population_2023.json", DATA / "economic_census_employment.json"]
 
 SANSHA = "460300"  # 三沙市: no land hex, no banner (CN_PLAN §3.1)
 # 省会 / 首府 (seat of the provincial-level government) of each province and autonomous region; 民政部 行政区划.
@@ -261,6 +264,7 @@ def build() -> None:
     bases = choose_bases(stats, ind, ids)
     window = growth.window(year)
     prefs = {p["adcode"]: p for p in bounds["prefectures"]}
+    populations, employment = population_sources(), census()
 
     cities = []
     no_seat = []
@@ -299,7 +303,9 @@ def build() -> None:
             "note": "".join(n + "。" for n in notes) or None,
         })
     for c in cities:
-        if c.pop("_scope_change"):
+        scope_changed = c.pop("_scope_change")
+        supplement_city(c, populations, employment, not scope_changed)
+        if scope_changed:
             c["growth"] = None
     screen = [f"{c['name']} {c['growth']:+.1%}" for c in cities if c["growth"] is not None and abs(c["growth"]) > SCREEN_GROWTH]
     if screen:
@@ -348,7 +354,7 @@ def build() -> None:
 
     nation = economy(stats["nation"], ind["nation"], bases, year, window)
     write_web("cities.json", cities)
-    write_web("nation.json", {
+    document = {
         "vintage": stats_payload.get("vintage") or f"七普 2020；{year} 年统计公报",
         "year": year,
         "census_year": growth.CENSUS_YEAR,
@@ -361,7 +367,13 @@ def build() -> None:
         "industries": dict(ind.get("industries") or {}),
         "rule": ("城市 = 地级行政区（地级市、地区、自治州、盟）、4 个直辖市、香港、澳门特别行政区及台湾省 6 个主要城市"
                  "（三沙市无陆地格子，仅作标注）。位置为政府驻地；人口与 GDP 仅取统计年份数据，缺失置空（非 0）。"),
-    })
+    }
+    if employment:
+        apply_employment(nation, employment.get("nation"))
+        province_yields = [{"yields": employment_yields(employment.get("provinces", {}).get(code, {}))}
+                           for code in china.PROVINCES]
+        apply_census_definitions(document, cities, province_yields)
+    write_web("nation.json", document)
 
 
 # --- builder check (pipeline/check.py part 3) ----------------------------------------------------------------

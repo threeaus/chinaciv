@@ -463,9 +463,8 @@ body.panel-open #lens-area { right: calc(394px + var(--dock-right, 0px)); }
   body.panel-open #minimap-wrap { display: none; }
   body.panel-open #lens-area { left: calc(12px + var(--dock-left, 0px)); }
 }
-/* The yields row gives way first when the bar is short of room (topbar.js marks it .clipped). Phones scroll the
-   whole bar instead. */
-@media (max-width: 1000px) and (min-width: 701px) {
+/* The national stats scroll independently when space is limited. */
+@media (max-width: 1000px) {
   .yields { flex: 0 1 auto; min-width: 0; overflow-x: auto; scrollbar-width: none; }
   .yields::-webkit-scrollbar { display: none; }
   .yields.clipped { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 22px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 22px), transparent); }
@@ -473,23 +472,24 @@ body.panel-open #lens-area { right: calc(394px + var(--dock-right, 0px)); }
 
 /* ---------- phones ---------- */
 @media (max-width: 700px) {
-  #topbar { gap: 10px; padding: 0 8px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-  #topbar::-webkit-scrollbar { display: none; }
+  :root { --topbar-h: 69px; }
+  #topbar {
+    display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-rows: 39px 29px;
+    gap: 0 6px; padding: 0 7px; overflow: hidden;
+  }
+  #topbar .tb-buttons { grid-column: 3; grid-row: 1; gap: 3px; }
+  #topbar .tb-buttons .btn { gap: 0; padding: 4px 5px; }
+  #topbar .tb-buttons .btn-ext .lbl { display: inline; font-size: 11px; }
+  #topbar .tb-buttons .btn-ext .emoji { display: none; }
   .brand-text { display: none; }
   .spacer { display: none; }
-  .search { flex: 0 0 160px; min-width: 160px; order: -1; margin-left: 4px; }
-  .brand { order: -2; }
+  .search { grid-column: 2; grid-row: 1; min-width: 0; }
+  .brand { grid-column: 1; grid-row: 1; }
+  .brand-emblem { margin-right: 0; }
+  #search-input { padding-right: 7px; }
   .search-kbd { display: none; }
-  .yields { gap: 10px; }
-  /* Fades at the ends of the scrolling bar (ui/topbar.js sets .more-l / .more-r). Sticky pseudo-elements stay at
-     the visible edges; the negative margins cancel their width and the 10px flex gap so they add no scroll width. */
-  #topbar::before, #topbar::after {
-    content: ""; position: sticky; flex: none; align-self: stretch; width: 30px; z-index: 1; pointer-events: none;
-    opacity: 0; transition: opacity .15s;
-  }
-  #topbar::before { order: -3; left: 0; margin-right: -40px; background: linear-gradient(90deg, #1b2a3a 20%, rgba(27,42,58,0)); }
-  #topbar::after { order: 99; right: 0; margin-left: -40px; background: linear-gradient(270deg, #1b2a3a 20%, rgba(27,42,58,0)); }
-  #topbar.more-l::before, #topbar.more-r::after { opacity: 1; }
+  .yields { grid-column: 1 / -1; grid-row: 2; gap: 4px; border-top: 1px solid #c9a45c40; }
+  .yields .yield { margin-inline: 0; }
 
   #lens-area { left: 0; right: 0; bottom: 0; gap: 6px; align-items: stretch; z-index: 13; }
   body.panel-open #lens-area { right: 0; }
@@ -509,7 +509,7 @@ body.panel-open #lens-area { right: calc(394px + var(--dock-right, 0px)); }
     display: grid; place-items: center; position: fixed; left: 8px; bottom: 60px; z-index: 11; width: 38px; height: 38px; padding: 0;
     cursor: pointer; color: var(--gold-bright); border-radius: 50%;
   }
-  body.minimap-on .minimap-toggle { bottom: auto; top: 50px; }
+  body.minimap-on .minimap-toggle { bottom: auto; top: calc(var(--topbar-h) + 10px); }
   body.panel-open .minimap-toggle, body.panel-open #minimap-wrap { display: none; }
 
   #city-panel {
@@ -538,7 +538,7 @@ body.panel-open #lens-area { right: calc(394px + var(--dock-right, 0px)); }
   #pedia-nav button { width: auto; white-space: nowrap; padding: 6px 12px; }
   #pedia-body { padding: 14px 16px; }
   .help-card { padding: 16px; }
-  .toast { top: 50px; }
+  .toast { top: calc(var(--topbar-h) + 10px); }
 
   .yield-report {
     left: 0 !important; right: 0; width: auto; max-width: none; z-index: 28;

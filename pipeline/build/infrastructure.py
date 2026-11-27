@@ -34,11 +34,14 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from ..core.hexgrid import HexGrid
+from ..core.paths import WEB_DATA
 from ..core.store import load_interim_payload, write_web
 from .locate import Locator
+from .phase2_stats import DATA, catalogue, read_curated
 
 REQUIRES = ["_world", "cn_boundaries", "cn_rail_roads", "cn_transport_air", "cn_transport_ports", "cities.json"]
 PRODUCES = ["infrastructure.json"]
+LOCAL_INPUTS = [DATA / "hmt_transport.json"]
 
 VERSION = 2  # China: passengers/cargo_t replace enplanements/tons
 SAMPLE_KM = 4.0
@@ -309,6 +312,66 @@ def build_ports(loc: Locator, ports: dict, dropped: list) -> list[dict]:
     return out
 
 
+def add_hmt_sites(doc, loc, data, dropped):
+    """Add locally reported sites without combining their ranks with the mainland lists."""
+    for key, metric in (("airports", "passengers"), ("ports", "cargo_t")):
+        rows = {row["id"]: row for row in doc[key] if not row.get("publisher")}
+        for place in data.get(key, []):
+            at = site_at(loc, place["lon"], place["lat"], province=place["state"])
+            if at is None:
+                dropped.append(place["name"])
+                continue
+            at["cbsa"] = place.get("cbsa")
+            fields = {k: place[k] for k in ("id", "name", "year", "publisher", "source", "position_source",
+                                           "cargo_source", "notes", "city") if k in place}
+            site = {**fields, **at, "rank": None}
+            if key == "airports":
+                site.update(hub=hub_class(place.get("passengers")), passengers=place.get("passengers"),
+                            passengers_prev=place.get("passengers_prev"), cargo_t=place.get("cargo_t"),
+                            movements=place.get("movements"))
+            else:
+                site.update(type="coastal", label=place["name"], cargo_t=place.get("cargo_t"), foreign_t=place.get("foreign_t"),
+                            teu=place.get("teu"), container_cargo_t=place.get("container_cargo_t"))
+            rows[site["id"]] = site
+        doc[key] = sorted(rows.values(), key=lambda row: (-(row.get(metric) or 0), row["id"]))
+    if data.get("airports") and data.get("ports") and "rules" in doc:
+        doc["sources"] = list(dict.fromkeys([*doc["sources"], "hmt_transport"]))
+        doc["rules"] = {
+            **doc["rules"],
+            "airports": "内地使用中国民用航空局年度公报，收录旅客吞吐量至少 100 万人次的机场。港澳台使用当地官方统计或机场管理机构年报，另列数据来源。",
+            "ports": "内地使用交通运输部年度统计，收录货物吞吐量前 30 的主要港口。港澳台使用当地港口统计，按原口径列示。澳门集装箱货运重量单列。",
+        }
+
+
+def add_hmt_sources(sources):
+    data = read_curated("hmt_transport.json")
+    links = {(row["publisher"], row["source"]) for key in ("airports", "ports") for row in data.get(key, [])}
+    links.update((row["publisher"] + " · 货运", row["cargo_source"])
+                 for row in data.get("airports", []) if row.get("cargo_source"))
+    if links:
+        catalogue(sources, "hmt_transport", "港澳台机场与港口统计", "港澳台交通及统计机构",
+                  "2025 年官方机场和港口统计，各地原始口径见标记详情。", links, ["infrastructure"], year=2025)
+
+
+def refresh_hmt():
+    def read(name):
+        return json.loads((WEB_DATA / f"{name}.json").read_bytes())
+
+    world, cities, doc, sources = (read(name) for name in ("world", "cities", "infrastructure", "sources"))
+    county_to_city = {code: row["id"] for row in cities for code in row["counties"]}
+    codes = [c["geoid"] for c in world["counties"]]
+    published_world = {**world, "states": [s["fips"] for s in world["states"]], "counties": codes,
+                       "county_prefecture": [county_to_city.get(code) for code in codes]}
+    loc = Locator(published_world, with_counties=False, cities=cities)
+    dropped = []
+    add_hmt_sites(doc, loc, read_curated("hmt_transport.json"), dropped)
+    if dropped:
+        raise ValueError(f"Could not place supplemental sites: {dropped}")
+    add_hmt_sources(sources)
+    write_web("infrastructure.json", doc)
+    write_web("sources.json", sources)
+
+
 # ------------------------------------------------------------------ build
 
 
@@ -327,9 +390,6 @@ def build() -> None:
     dropped: list[str] = []
     airports = build_airports(loc, air["data"], dropped)
     ports = build_ports(loc, prt["data"], dropped)
-    if dropped:
-        print(f"    WARNING: no Chinese land cell near {len(dropped)} sites: {dropped}")
-
     doc = {
         "version": VERSION,
         "vintage": {"roads": rr["vintage"], "rail": rr["vintage"], "ports": prt["vintage"], "airports": air["vintage"]},
@@ -346,6 +406,10 @@ def build() -> None:
         "ports": ports,
         "airports": airports,
     }
+    add_hmt_sites(doc, loc, read_curated("hmt_transport.json"), dropped)
+    airports, ports = doc["airports"], doc["ports"]
+    if dropped:
+        print(f"    WARNING: no Chinese land cell near {len(dropped)} sites: {dropped}")
     write_web("infrastructure.json", doc)
     land = sum(1 for o in owner if o >= 0)
     road_cells = {c for a, b, *_ in roads for c in (a, b) if owner[c] >= 0}
@@ -445,7 +509,7 @@ def check(web_dir: Path) -> list[tuple[str, str]]:
                 v = s.get(k)
                 if v is not None and (isinstance(v, bool) or not isinstance(v, (int, float)) or v < 0):
                     probs.append(f"{s.get('id')}: bad {k} {v!r}")
-            if s.get(metric) is None:
+            if s.get(metric) is None and not (key == "ports" and s.get("publisher") and s.get("teu") is not None):
                 probs.append(f"{s.get('id')}: {metric} null (selection metric)")
             cx, cy = grid.center(*grid.col_row(c))
             if not all(isinstance(s.get(k), (int, float)) for k in ("x", "y")) or \
@@ -465,7 +529,7 @@ def check(web_dir: Path) -> list[tuple[str, str]]:
             probs.append(f"not sorted by {metric}")
         return probs
 
-    for key, nums, metric in (("ports", ("cargo_t", "foreign_t", "teu", "rank"), "cargo_t"),
+    for key, nums, metric in (("ports", ("cargo_t", "foreign_t", "teu", "rank", "container_cargo_t"), "cargo_t"),
                               ("airports", ("passengers", "passengers_prev", "cargo_t", "movements"), "passengers")):
         probs = check_sites(key, nums, metric)
         if probs:
@@ -477,7 +541,7 @@ def check(web_dir: Path) -> list[tuple[str, str]]:
             out.append(("PASS", f"infrastructure.json {key}: {len(doc[key])} sites, {metro} in a mapped city"))
     if any(a.get("passengers") is not None and a["passengers"] < AIRPORT_MIN_PASSENGERS for a in doc["airports"]):
         out.append(("FAIL", f"infrastructure.json airports: an airport below the {AIRPORT_MIN_PASSENGERS:,} rule"))
-    if len(doc["ports"]) > PORT_TOP_N:
+    if sum(not p.get("publisher") for p in doc["ports"]) > PORT_TOP_N:
         out.append(("FAIL", f"infrastructure.json ports: more than the top {PORT_TOP_N}"))
     if any(a.get("hub") not in doc["hubs"] for a in doc["airports"]):
         out.append(("FAIL", "infrastructure.json airports: hub not in hubs"))

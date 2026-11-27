@@ -1,0 +1,837 @@
+{
+  "sources": [
+    {
+      "title": "玉溪统计年鉴 · 表14-1、14-2（云南各州、市）",
+      "url": "https://www.yuxi.gov.cn/u/cms/yxszfxxgk/202601/05181012stvh.pdf"
+    },
+    {
+      "title": "江苏统计年鉴2021表19-2，分市年末常住人口（2020年）",
+      "url": "https://tj.jiangsu.gov.cn/2021/nj19/nj1902.htm"
+    },
+    {
+      "title": "江苏统计年鉴2022表19-2，分市年末常住人口（2021年）",
+      "url": "https://tj.jiangsu.gov.cn/2022/nj19/nj1902.htm"
+    },
+    {
+      "title": "江苏统计年鉴2023表19-2，分市年末常住人口（2022年）",
+      "url": "https://tj.jiangsu.gov.cn/2023/nj19/nj1902.htm"
+    },
+    {
+      "title": "江苏统计年鉴2024表19-2，分市年末常住人口（2023年）",
+      "url": "https://tj.jiangsu.gov.cn/2024/nj19/nj1902.htm"
+    },
+    {
+      "title": "JETRO 江蘇省各市の人口と経済規模，2024 年常住人口（万人单位取整）",
+      "url": "https://www.jetro.go.jp/ext_images/world/asia/cn/katoh/pdf/JiangSu2025.pdf"
+    },
+    {
+      "title": "江苏统计年鉴2025表2-9，分市地区生产总值（现价修订序列）",
+      "url": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm"
+    },
+    {
+      "title": "盘锦统计年鉴2024表3-1，历年现价地区生产总值（经济普查修订）",
+      "url": "https://tjj.panjin.gov.cn/2025_04/18_16/content-517485.html"
+    }
+  ],
+  "cities": {
+    "530100": {
+      "2020": {
+        "population": 8463000,
+        "gdp": 673379000000
+      },
+      "2021": {
+        "population": 8502000,
+        "gdp": 722250000000
+      },
+      "2022": {
+        "population": 8600000,
+        "gdp": 754137000000
+      },
+      "2023": {
+        "population": 8680000,
+        "gdp": 798479000000
+      },
+      "2024": {
+        "population": 8687000,
+        "gdp": 827522000000
+      }
+    },
+    "530300": {
+      "2020": {
+        "population": 5766000,
+        "gdp": 295935000000
+      },
+      "2021": {
+        "population": 5701000,
+        "gdp": 339391000000
+      },
+      "2022": {
+        "population": 5756000,
+        "gdp": 380220000000
+      },
+      "2023": {
+        "population": 5688000,
+        "gdp": 372397000000
+      },
+      "2024": {
+        "population": 5634000,
+        "gdp": 367722000000
+      }
+    },
+    "530400": {
+      "2020": {
+        "population": 2250000,
+        "gdp": 206220000000
+      },
+      "2021": {
+        "population": 2240000,
+        "gdp": 235281000000
+      },
+      "2022": {
+        "population": 2278000,
+        "gdp": 248009000000
+      },
+      "2023": {
+        "population": 2265000,
+        "gdp": 250382000000
+      },
+      "2024": {
+        "population": 2266000,
+        "gdp": 258205000000
+      }
+    },
+    "530500": {
+      "2020": {
+        "population": 2431000,
+        "gdp": 105258000000
+      },
+      "2021": {
+        "population": 2418000,
+        "gdp": 116554000000
+      },
+      "2022": {
+        "population": 2397000,
+        "gdp": 126244000000
+      },
+      "2023": {
+        "population": 2407000,
+        "gdp": 126209000000
+      },
+      "2024": {
+        "population": 2399000,
+        "gdp": 128191000000
+      }
+    },
+    "530600": {
+      "2020": {
+        "population": 5093000,
+        "gdp": 128874000000
+      },
+      "2021": {
+        "population": 5014000,
+        "gdp": 146206000000
+      },
+      "2022": {
+        "population": 4949000,
+        "gdp": 154102000000
+      },
+      "2023": {
+        "population": 4854000,
+        "gdp": 192653000000
+      },
+      "2024": {
+        "population": 4804000,
+        "gdp": 201691000000
+      }
+    },
+    "530700": {
+      "2020": {
+        "population": 1255000,
+        "gdp": 51275000000
+      },
+      "2021": {
+        "population": 1254000,
+        "gdp": 57049000000
+      },
+      "2022": {
+        "population": 1238000,
+        "gdp": 62010000000
+      },
+      "2023": {
+        "population": 1250000,
+        "gdp": 68554000000
+      },
+      "2024": {
+        "population": 1250000,
+        "gdp": 71003000000
+      }
+    },
+    "530800": {
+      "2020": {
+        "population": 2405000,
+        "gdp": 94542000000
+      },
+      "2021": {
+        "population": 2381000,
+        "gdp": 102915000000
+      },
+      "2022": {
+        "population": 2370000,
+        "gdp": 107297000000
+      },
+      "2023": {
+        "population": 2340000,
+        "gdp": 115941000000
+      },
+      "2024": {
+        "population": 2337000,
+        "gdp": 118893000000
+      }
+    },
+    "530900": {
+      "2020": {
+        "population": 2258000,
+        "gdp": 82132000000
+      },
+      "2021": {
+        "population": 2233000,
+        "gdp": 90848000000
+      },
+      "2022": {
+        "population": 2240000,
+        "gdp": 100024000000
+      },
+      "2023": {
+        "population": 2202000,
+        "gdp": 110740000000
+      },
+      "2024": {
+        "population": 2195000,
+        "gdp": 115019000000
+      }
+    },
+    "532300": {
+      "2020": {
+        "population": 2417000,
+        "gdp": 137216000000
+      },
+      "2021": {
+        "population": 2391000,
+        "gdp": 160812000000
+      },
+      "2022": {
+        "population": 2372000,
+        "gdp": 176342000000
+      },
+      "2023": {
+        "population": 2342000,
+        "gdp": 194675000000
+      },
+      "2024": {
+        "population": 2327000,
+        "gdp": 201895000000
+      }
+    },
+    "532500": {
+      "2020": {
+        "population": 4478000,
+        "gdp": 241748000000
+      },
+      "2021": {
+        "population": 4436000,
+        "gdp": 274212000000
+      },
+      "2022": {
+        "population": 4405000,
+        "gdp": 286308000000
+      },
+      "2023": {
+        "population": 4363000,
+        "gdp": 284480000000
+      },
+      "2024": {
+        "population": 4339000,
+        "gdp": 298549000000
+      }
+    },
+    "532600": {
+      "2020": {
+        "population": 3503000,
+        "gdp": 118512000000
+      },
+      "2021": {
+        "population": 3444000,
+        "gdp": 129877000000
+      },
+      "2022": {
+        "population": 3454000,
+        "gdp": 140539000000
+      },
+      "2023": {
+        "population": 3397000,
+        "gdp": 146542000000
+      },
+      "2024": {
+        "population": 3372000,
+        "gdp": 154911000000
+      }
+    },
+    "532800": {
+      "2020": {
+        "population": 1304000,
+        "gdp": 60418000000
+      },
+      "2021": {
+        "population": 1306000,
+        "gdp": 67615000000
+      },
+      "2022": {
+        "population": 1308000,
+        "gdp": 72139000000
+      },
+      "2023": {
+        "population": 1333000,
+        "gdp": 85650000000
+      },
+      "2024": {
+        "population": 1336000,
+        "gdp": 90180000000
+      }
+    },
+    "532900": {
+      "2020": {
+        "population": 3338000,
+        "gdp": 148404000000
+      },
+      "2021": {
+        "population": 3321000,
+        "gdp": 163299000000
+      },
+      "2022": {
+        "population": 3305000,
+        "gdp": 169962000000
+      },
+      "2023": {
+        "population": 3342000,
+        "gdp": 194334000000
+      },
+      "2024": {
+        "population": 3340000,
+        "gdp": 201093000000
+      }
+    },
+    "533100": {
+      "2020": {
+        "population": 1318000,
+        "gdp": 57554000000
+      },
+      "2021": {
+        "population": 1316000,
+        "gdp": 55621000000
+      },
+      "2022": {
+        "population": 1321000,
+        "gdp": 58712000000
+      },
+      "2023": {
+        "population": 1337000,
+        "gdp": 61210000000
+      },
+      "2024": {
+        "population": 1337000,
+        "gdp": 62012000000
+      }
+    },
+    "533300": {
+      "2020": {
+        "population": 553000,
+        "gdp": 21073000000
+      },
+      "2021": {
+        "population": 554000,
+        "gdp": 23411000000
+      },
+      "2022": {
+        "population": 546000,
+        "gdp": 24993000000
+      },
+      "2023": {
+        "population": 535000,
+        "gdp": 26748000000
+      },
+      "2024": {
+        "population": 532000,
+        "gdp": 27889000000
+      }
+    },
+    "533400": {
+      "2020": {
+        "population": 388000,
+        "gdp": 26694000000
+      },
+      "2021": {
+        "population": 389000,
+        "gdp": 29327000000
+      },
+      "2022": {
+        "population": 391000,
+        "gdp": 30336000000
+      },
+      "2023": {
+        "population": 395000,
+        "gdp": 30605000000
+      },
+      "2024": {
+        "population": 395000,
+        "gdp": 30701000000
+      }
+    },
+    "320100": {
+      "2020": {
+        "population": 9319700,
+        "gdp": 1489203000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2021/nj19/nj1902.htm"
+      },
+      "2021": {
+        "population": 9423400,
+        "gdp": 1648284000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2022/nj19/nj1902.htm"
+      },
+      "2022": {
+        "population": 9491100,
+        "gdp": 1708821000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2023/nj19/nj1902.htm"
+      },
+      "2023": {
+        "population": 9547000,
+        "gdp": 1779640000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2024/nj19/nj1902.htm"
+      },
+      "2024": {
+        "population": 9580000,
+        "gdp": 1850081000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://www.jetro.go.jp/ext_images/world/asia/cn/katoh/pdf/JiangSu2025.pdf",
+        "population_step": 10000
+      }
+    },
+    "320200": {
+      "2020": {
+        "population": 7464000,
+        "gdp": 1229876000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2021/nj19/nj1902.htm"
+      },
+      "2021": {
+        "population": 7479500,
+        "gdp": 1422863000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2022/nj19/nj1902.htm"
+      },
+      "2022": {
+        "population": 7490800,
+        "gdp": 1481703000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2023/nj19/nj1902.htm"
+      },
+      "2023": {
+        "population": 7495000,
+        "gdp": 1553819000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2024/nj19/nj1902.htm"
+      },
+      "2024": {
+        "population": 7510000,
+        "gdp": 1626329000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://www.jetro.go.jp/ext_images/world/asia/cn/katoh/pdf/JiangSu2025.pdf",
+        "population_step": 10000
+      }
+    },
+    "320400": {
+      "2020": {
+        "population": 5279600,
+        "gdp": 784618000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2021/nj19/nj1902.htm"
+      },
+      "2021": {
+        "population": 5349600,
+        "gdp": 914841000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2022/nj19/nj1902.htm"
+      },
+      "2022": {
+        "population": 5366200,
+        "gdp": 966794000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2023/nj19/nj1902.htm"
+      },
+      "2023": {
+        "population": 5375000,
+        "gdp": 1029736000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2024/nj19/nj1902.htm"
+      },
+      "2024": {
+        "population": 5390000,
+        "gdp": 1081359000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://www.jetro.go.jp/ext_images/world/asia/cn/katoh/pdf/JiangSu2025.pdf",
+        "population_step": 10000
+      }
+    },
+    "320500": {
+      "2020": {
+        "population": 12749600,
+        "gdp": 2062290000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2021/nj19/nj1902.htm"
+      },
+      "2021": {
+        "population": 12847800,
+        "gdp": 2393633000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2022/nj19/nj1902.htm"
+      },
+      "2022": {
+        "population": 12910600,
+        "gdp": 2457842000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2023/nj19/nj1902.htm"
+      },
+      "2023": {
+        "population": 12958000,
+        "gdp": 2551337000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2024/nj19/nj1902.htm"
+      },
+      "2024": {
+        "population": 12990000,
+        "gdp": 2672698000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://www.jetro.go.jp/ext_images/world/asia/cn/katoh/pdf/JiangSu2025.pdf",
+        "population_step": 10000
+      }
+    },
+    "321100": {
+      "2020": {
+        "population": 3211000,
+        "gdp": 417695000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2021/nj19/nj1902.htm"
+      },
+      "2021": {
+        "population": 3217200,
+        "gdp": 477018000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2022/nj19/nj1902.htm"
+      },
+      "2022": {
+        "population": 3222200,
+        "gdp": 500380000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2023/nj19/nj1902.htm"
+      },
+      "2023": {
+        "population": 3226000,
+        "gdp": 529007000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2024/nj19/nj1902.htm"
+      },
+      "2024": {
+        "population": 3230000,
+        "gdp": 554001000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://www.jetro.go.jp/ext_images/world/asia/cn/katoh/pdf/JiangSu2025.pdf",
+        "population_step": 10000
+      }
+    },
+    "320600": {
+      "2020": {
+        "population": 7728000,
+        "gdp": 1001013000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2021/nj19/nj1902.htm"
+      },
+      "2021": {
+        "population": 7733000,
+        "gdp": 1098828000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2022/nj19/nj1902.htm"
+      },
+      "2022": {
+        "population": 7743500,
+        "gdp": 1131457000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2023/nj19/nj1902.htm"
+      },
+      "2023": {
+        "population": 7748500,
+        "gdp": 1182800000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2024/nj19/nj1902.htm"
+      },
+      "2024": {
+        "population": 7750000,
+        "gdp": 1242189000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://www.jetro.go.jp/ext_images/world/asia/cn/katoh/pdf/JiangSu2025.pdf",
+        "population_step": 10000
+      }
+    },
+    "321000": {
+      "2020": {
+        "population": 4561000,
+        "gdp": 600139000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2021/nj19/nj1902.htm"
+      },
+      "2021": {
+        "population": 4577000,
+        "gdp": 664782000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2022/nj19/nj1902.htm"
+      },
+      "2022": {
+        "population": 4582900,
+        "gdp": 704746000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2023/nj19/nj1902.htm"
+      },
+      "2023": {
+        "population": 4585000,
+        "gdp": 744126000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2024/nj19/nj1902.htm"
+      },
+      "2024": {
+        "population": 4590000,
+        "gdp": 780964000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://www.jetro.go.jp/ext_images/world/asia/cn/katoh/pdf/JiangSu2025.pdf",
+        "population_step": 10000
+      }
+    },
+    "321200": {
+      "2020": {
+        "population": 4516800,
+        "gdp": 527820000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2021/nj19/nj1902.htm"
+      },
+      "2021": {
+        "population": 4521800,
+        "gdp": 604113000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2022/nj19/nj1902.htm"
+      },
+      "2022": {
+        "population": 4505600,
+        "gdp": 636376000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2023/nj19/nj1902.htm"
+      },
+      "2023": {
+        "population": 4507000,
+        "gdp": 675466000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2024/nj19/nj1902.htm"
+      },
+      "2024": {
+        "population": 4470000,
+        "gdp": 702095000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://www.jetro.go.jp/ext_images/world/asia/cn/katoh/pdf/JiangSu2025.pdf",
+        "population_step": 10000
+      }
+    },
+    "320300": {
+      "2020": {
+        "population": 9083900,
+        "gdp": 729504000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2021/nj19/nj1902.htm"
+      },
+      "2021": {
+        "population": 9028500,
+        "gdp": 803755000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2022/nj19/nj1902.htm"
+      },
+      "2022": {
+        "population": 9018500,
+        "gdp": 844541000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2023/nj19/nj1902.htm"
+      },
+      "2023": {
+        "population": 9020000,
+        "gdp": 901244000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2024/nj19/nj1902.htm"
+      },
+      "2024": {
+        "population": 9010000,
+        "gdp": 953712000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://www.jetro.go.jp/ext_images/world/asia/cn/katoh/pdf/JiangSu2025.pdf",
+        "population_step": 10000
+      }
+    },
+    "320700": {
+      "2020": {
+        "population": 4601000,
+        "gdp": 334210000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2021/nj19/nj1902.htm"
+      },
+      "2021": {
+        "population": 4602000,
+        "gdp": 383569000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2022/nj19/nj1902.htm"
+      },
+      "2022": {
+        "population": 4600500,
+        "gdp": 406612000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2023/nj19/nj1902.htm"
+      },
+      "2023": {
+        "population": 4594000,
+        "gdp": 446261000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2024/nj19/nj1902.htm"
+      },
+      "2024": {
+        "population": 4580000,
+        "gdp": 466313000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://www.jetro.go.jp/ext_images/world/asia/cn/katoh/pdf/JiangSu2025.pdf",
+        "population_step": 10000
+      }
+    },
+    "320800": {
+      "2020": {
+        "population": 4559200,
+        "gdp": 400356000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2021/nj19/nj1902.htm"
+      },
+      "2021": {
+        "population": 4562200,
+        "gdp": 453306000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2022/nj19/nj1902.htm"
+      },
+      "2022": {
+        "population": 4553100,
+        "gdp": 475924000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2023/nj19/nj1902.htm"
+      },
+      "2023": {
+        "population": 4538000,
+        "gdp": 506806000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2024/nj19/nj1902.htm"
+      },
+      "2024": {
+        "population": 4520000,
+        "gdp": 541302000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://www.jetro.go.jp/ext_images/world/asia/cn/katoh/pdf/JiangSu2025.pdf",
+        "population_step": 10000
+      }
+    },
+    "320900": {
+      "2020": {
+        "population": 6710600,
+        "gdp": 588041000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2021/nj19/nj1902.htm"
+      },
+      "2021": {
+        "population": 6713000,
+        "gdp": 660515000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2022/nj19/nj1902.htm"
+      },
+      "2022": {
+        "population": 6689700,
+        "gdp": 703645000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2023/nj19/nj1902.htm"
+      },
+      "2023": {
+        "population": 6689000,
+        "gdp": 743287000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2024/nj19/nj1902.htm"
+      },
+      "2024": {
+        "population": 6670000,
+        "gdp": 777918000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://www.jetro.go.jp/ext_images/world/asia/cn/katoh/pdf/JiangSu2025.pdf",
+        "population_step": 10000
+      }
+    },
+    "321300": {
+      "2020": {
+        "population": 4988200,
+        "gdp": 329664000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2021/nj19/nj1902.htm"
+      },
+      "2021": {
+        "population": 4999000,
+        "gdp": 391822000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2022/nj19/nj1902.htm"
+      },
+      "2022": {
+        "population": 4975300,
+        "gdp": 419013000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2023/nj19/nj1902.htm"
+      },
+      "2023": {
+        "population": 4977500,
+        "gdp": 451907000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://tj.jiangsu.gov.cn/2024/nj19/nj1902.htm"
+      },
+      "2024": {
+        "population": 4980000,
+        "gdp": 480185000000,
+        "gdp_source": "https://tj.jiangsu.gov.cn/2025/nj02/nj0209.htm",
+        "population_source": "https://www.jetro.go.jp/ext_images/world/asia/cn/katoh/pdf/JiangSu2025.pdf",
+        "population_step": 10000
+      }
+    },
+    "211100": {
+      "2020": {
+        "gdp": 126438940000,
+        "gdp_source": "https://tjj.panjin.gov.cn/2025_04/18_16/content-517485.html"
+      },
+      "2021": {
+        "gdp": 139780940000,
+        "gdp_source": "https://tjj.panjin.gov.cn/2025_04/18_16/content-517485.html"
+      },
+      "2022": {
+        "gdp": 138441980000,
+        "gdp_source": "https://tjj.panjin.gov.cn/2025_04/18_16/content-517485.html"
+      },
+      "2023": {
+        "gdp": 138585570000,
+        "gdp_source": "https://tjj.panjin.gov.cn/2025_04/18_16/content-517485.html"
+      }
+    }
+  }
+}

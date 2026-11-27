@@ -212,10 +212,14 @@ function hubs(m) {
     ...m.hubs.map((h) => {
       const it = h.item;
       const air = h.kind === "airport";
-      const val = air ? (it.passengers ?? it.enplanements) : (it.cargo_t ?? it.tons);
-      const what = air ? `机场 · 旅客吞吐量第 ${esc(it.rank ?? "–")} 位` : `${it.type === "inland" ? "内河港口" : "沿海港口"} · 货物吞吐量第 ${esc(it.rank ?? "–")} 位`;
+      const val = air ? (it.passengers ?? it.enplanements) : (it.cargo_t ?? it.tons ?? it.teu);
+      const kind = air ? "机场" : it.type === "inland" ? "内河港口" : "沿海港口";
+      const basis = air ? "旅客吞吐量" : it.cargo_t == null && it.teu != null ? "集装箱吞吐量" : "货物吞吐量";
+      const unit = air ? "人次" : it.cargo_t == null && it.teu != null ? "标箱" : "吨";
+      const what = it.publisher ? `${kind} · ${esc(it.publisher)} · ${basis}`
+        : `${kind} · ${basis}${it.rank != null ? `第 ${esc(it.rank)} 位` : ""}`;
       return { icon: air ? "d-aerodrome" : "d-harbor", fb: air ? "✈️" : "⚓", name: it.name, what,
-        val: val != null ? `${compact(val)} ${air ? "人次" : "吨"}` : "", cell: it.cell };
+        val: val != null ? `${compact(val)} ${unit}` : "", cell: it.cell };
     }),
     ...m.wonders.map((x) => ({ icon: x.kind === "university" ? "w-university" : x.kind === "natural" ? "w-park" : "w-landmark", fb: "🏛️",
       name: x.name, what: x.rule === "unesco_whs" ? "世界遗产" : x.rule === "national_park" ? "国家公园" : x.rule === "scenic_5a" ? "5A 级景区" : x.kind === "university" ? "一流大学" : "奇观",

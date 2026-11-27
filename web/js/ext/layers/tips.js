@@ -26,6 +26,14 @@ export const tips = {
     const yr = p.year ?? "";
     const where = [PORT_TYPE[p.type] || "港口", provinceName(m, p.state)].filter(Boolean).join(" · ");
     const lines = [`<b>${esc(p.name)}</b> ${muted(esc(where))}`];
+    if (p.publisher) {
+      lines.push(`${esc(yr)} 年 · ${esc(p.publisher)}`);
+      if (p.cargo_t != null) lines.push(`货物吞吐量 <b>${num(p.cargo_t)}</b> 吨`);
+      if (p.container_cargo_t != null) lines.push(`集装箱货运重量 <b>${num(p.container_cargo_t)}</b> 吨`);
+      if (p.teu != null) lines.push(`集装箱吞吐量 <b>${num(p.teu)}</b> 标箱`);
+      if (p.notes) lines.push(muted(esc(p.notes)));
+      return lines.join("<br>");
+    }
     if (p.cargo_t != null || p.tons == null) {
       lines.push(`货物吞吐量第 ${esc(p.rank ?? "–")} 位 · <b>${num(p.cargo_t)}</b> 吨（${esc(yr)} 年）`);
       const extra = [p.foreign_t != null ? `外贸 ${num(p.foreign_t)} 吨` : "", p.teu != null ? `集装箱 ${num(p.teu)} 标箱` : ""].filter(Boolean);
@@ -53,7 +61,8 @@ export const tips = {
     }
     const more = [a.cargo_t != null ? `货邮 ${num(a.cargo_t)} 吨` : "", a.movements != null ? `起降 ${num(a.movements)} 架次` : ""].filter(Boolean);
     if (more.length) lines.push(more.join(" · "));
-    lines.push(muted(a.passengers != null ? "中国民用航空局《全国民用运输机场生产统计公报》；旅客吞吐量含进出港。" : "FAA 数据（测试数据）。"));
+    lines.push(muted(esc(a.publisher || (a.passengers != null ? "中国民用航空局《全国民用运输机场生产统计公报》；旅客吞吐量含进出港。" : "FAA 数据（测试数据）。"))));
+    if (a.notes) lines.push(muted(esc(a.notes)));
     return lines.join("<br>");
   },
   wonder(x, m) {

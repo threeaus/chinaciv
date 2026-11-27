@@ -52,7 +52,7 @@ export function makeLayers(model, on, { tips = {}, app = null } = {}) {
   };
   const rail = {
     id: "rail", z: 56, minRpx: RAIL_MIN_RPX, // high-speed rail shows from further out than conventional rail
-    visible: () => !!on.rail && !!m.net,
+    visible: () => !!on.rail && !!m.net && !app?.history?.railActive,
     sig: ver,
     draw(ctx, vp, w, o) {
       ctx.globalAlpha = lensAlpha(o);

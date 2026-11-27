@@ -188,10 +188,12 @@ export function initPedia(data) {
   };
   // A source's raw files: the first few inline, the rest (DataV and Overpass have hundreds) folded away.
   const FILES_SHOWN = 6;
-  const fileRow = (f) => `<tr><td><code>${esc(f.url)}</code></td><td class="muted" style="white-space:nowrap">${esc((f.retrieved || "").slice(0, 10))}<br>${((f.bytes || 0) / 1e6).toFixed(1)} MB</td></tr>`;
+  const fileRow = (f) => f.retrieved
+    ? `<tr><td><code>${esc(f.url)}</code></td><td class="muted" style="white-space:nowrap">${esc(f.retrieved.slice(0, 10))}<br>${((f.bytes || 0) / 1e6).toFixed(1)} MB</td></tr>`
+    : `<tr><td><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.file)}</a></td><td class="muted">原始资料</td></tr>`;
   const fileTable = (files) => `<table>${files.slice(0, FILES_SHOWN).map(fileRow).join("")}</table>${files.length > FILES_SHOWN
     ? `<details><summary class="muted">另有 ${files.length - FILES_SHOWN} 个文件</summary><table>${files.slice(FILES_SHOWN).map(fileRow).join("")}</table></details>` : ""}`;
-  // Phase 1 builds no lenses.json: no empty 透镜 page then.
+  // Omit the lens page when a stripped-down deployment has no lens file.
   if (!hasLenses) delete pages.lenses;
   // Old English page names (links, other modules) still open the right page.
   const ALIAS = { "About this map": "about", Yields: "yields", States: "states", Terrain: "terrain", Lenses: "lenses", Resources: "resources", Sources: "sources" };
