@@ -108,7 +108,8 @@ export function industries(o, nation, limit = 0) {
 export const gdpRow = (o) =>
   o.gdp != null
     ? `<div class="stat-row"><span class="sl">${icon("y-gold", "💰", { size: 14 })}地区生产总值${o.gdp_year ? `（${o.gdp_year}）` : ""}</span><span><b>${money(o.gdp)}</b>${
-        o.population ? `<span class="cmp">人均 ${money(o.gdp / o.population)}</span>` : ""}</span></div>`
+        o.population && o.population_year === o.gdp_year ? `<span class="cmp">人均 ${money(o.gdp / o.population)}</span>` : ""}${
+        o.gdp_local_currency === "TWD" ? `<span class="cmp" title="1 人民币 = ${esc(o.gdp_fx_local_per_cny)} 新台币">原值 NT$${int(o.gdp_local)}</span>` : ""}</span></div>`
     : "";
 
 // " · ▲ 3.4% 较 2020" from growth / growth_years (cities and provinces), compared with the nation in the tooltip.
@@ -126,7 +127,7 @@ export function growthSpan(o, n = null) {
 }
 
 export const popLine = (o, extra = "") =>
-  `<div class="cp-pop">${icon("pop", "👥", { size: 16 })} 常住人口 <b>${int(o.population)}</b>${o.population_year ? `（${o.population_year}）` : ""}${
+  `<div class="cp-pop">${icon("pop", "👥", { size: 16 })} ${o.fips === "71" || o.kind === "taiwan_city" ? "户籍人口" : "常住人口"} <b>${int(o.population)}</b>${o.population_year ? `（${o.population_year}）` : ""}${
     o.employed != null ? ` · 从业 ${int(o.employed)}` : ""}${extra}</div>`;
 
 /**

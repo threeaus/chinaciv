@@ -1,0 +1,247 @@
+{
+  "source": "https://tjj.jl.gov.cn/tjsj/tjnj/2024/2024/B19_4.htm",
+  "title": "吉林统计年鉴2024 表19-4",
+  "year": 2023,
+  "counties": {
+    "220102": {
+      "population": 667400,
+      "urban_pct": 1.0
+    },
+    "220103": {
+      "population": 679800,
+      "urban_pct": 0.9251
+    },
+    "220104": {
+      "population": 619900,
+      "urban_pct": 0.9735
+    },
+    "220105": {
+      "population": 533900,
+      "urban_pct": 1.0
+    },
+    "220106": {
+      "population": 720400,
+      "urban_pct": 0.99
+    },
+    "220112": {
+      "population": 329800,
+      "urban_pct": 0.5058
+    },
+    "220113": {
+      "population": 564600,
+      "urban_pct": 0.3831
+    },
+    "220122": {
+      "population": 855400,
+      "urban_pct": 0.328
+    },
+    "220182": {
+      "population": 821700,
+      "urban_pct": 0.3186
+    },
+    "220183": {
+      "population": 679700,
+      "urban_pct": 0.3231
+    },
+    "220184": {
+      "population": 849900,
+      "urban_pct": 0.4666
+    },
+    "220202": {
+      "population": 571200,
+      "urban_pct": 0.83
+    },
+    "220203": {
+      "population": 358100,
+      "urban_pct": 0.7582
+    },
+    "220204": {
+      "population": 454700,
+      "urban_pct": 0.8548
+    },
+    "220211": {
+      "population": 258500,
+      "urban_pct": 0.7439
+    },
+    "220221": {
+      "population": 235500,
+      "urban_pct": 0.4081
+    },
+    "220281": {
+      "population": 317500,
+      "urban_pct": 0.5294
+    },
+    "220282": {
+      "population": 327700,
+      "urban_pct": 0.5618
+    },
+    "220283": {
+      "population": 396400,
+      "urban_pct": 0.449
+    },
+    "220284": {
+      "population": 358400,
+      "urban_pct": 0.4607
+    },
+    "220302": {
+      "population": 291100,
+      "urban_pct": 0.7554
+    },
+    "220303": {
+      "population": 292600,
+      "urban_pct": 0.8267
+    },
+    "220322": {
+      "population": 492400,
+      "urban_pct": 0.3751
+    },
+    "220323": {
+      "population": 304500,
+      "urban_pct": 0.3442
+    },
+    "220382": {
+      "population": 293800,
+      "urban_pct": 0.4779
+    },
+    "220402": {
+      "population": 313200,
+      "urban_pct": 0.8943
+    },
+    "220403": {
+      "population": 125400,
+      "urban_pct": 0.8971
+    },
+    "220421": {
+      "population": 293300,
+      "urban_pct": 0.3873
+    },
+    "220422": {
+      "population": 211900,
+      "urban_pct": 0.2756
+    },
+    "220502": {
+      "population": 341000,
+      "urban_pct": 0.9411
+    },
+    "220503": {
+      "population": 82600,
+      "urban_pct": 0.8668
+    },
+    "220521": {
+      "population": 158500,
+      "urban_pct": 0.453
+    },
+    "220523": {
+      "population": 214100,
+      "urban_pct": 0.5297
+    },
+    "220524": {
+      "population": 251900,
+      "urban_pct": 0.3851
+    },
+    "220582": {
+      "population": 152300,
+      "urban_pct": 0.497
+    },
+    "220602": {
+      "population": 290800,
+      "urban_pct": 0.9185
+    },
+    "220605": {
+      "population": 128100,
+      "urban_pct": 0.8056
+    },
+    "220621": {
+      "population": 204500,
+      "urban_pct": 0.7922
+    },
+    "220622": {
+      "population": 102700,
+      "urban_pct": 0.6212
+    },
+    "220623": {
+      "population": 55200,
+      "urban_pct": 0.7156
+    },
+    "220681": {
+      "population": 114600,
+      "urban_pct": 0.7312
+    },
+    "220702": {
+      "population": 598400,
+      "urban_pct": 0.7913
+    },
+    "220721": {
+      "population": 377900,
+      "urban_pct": 0.4091
+    },
+    "220722": {
+      "population": 422700,
+      "urban_pct": 0.2924
+    },
+    "220723": {
+      "population": 194400,
+      "urban_pct": 0.4671
+    },
+    "220781": {
+      "population": 440100,
+      "urban_pct": 0.2761
+    },
+    "220802": {
+      "population": 341500,
+      "urban_pct": 0.7552
+    },
+    "220821": {
+      "population": 202800,
+      "urban_pct": 0.5049
+    },
+    "220822": {
+      "population": 265000,
+      "urban_pct": 0.4192
+    },
+    "220881": {
+      "population": 290200,
+      "urban_pct": 0.3939
+    },
+    "220882": {
+      "population": 254100,
+      "urban_pct": 0.5218
+    },
+    "222401": {
+      "population": 671000,
+      "urban_pct": 0.9383
+    },
+    "222402": {
+      "population": 80400,
+      "urban_pct": 0.8396
+    },
+    "222403": {
+      "population": 387000,
+      "urban_pct": 0.6243
+    },
+    "222404": {
+      "population": 235600,
+      "urban_pct": 0.8043
+    },
+    "222405": {
+      "population": 124600,
+      "urban_pct": 0.7665
+    },
+    "222406": {
+      "population": 113000,
+      "urban_pct": 0.6947
+    },
+    "222424": {
+      "population": 161700,
+      "urban_pct": 0.6994
+    },
+    "222426": {
+      "population": 121600,
+      "urban_pct": 0.5173
+    },
+    "220581": {
+      "population": 500700,
+      "urban_pct": 0.594
+    }
+  }
+}

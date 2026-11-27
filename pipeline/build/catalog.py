@@ -11,6 +11,11 @@ string so the Almanac can print it.
 from ..core.fetch import read_manifest
 from ..core.store import load_interim_payload, write_web
 from ..sources import SOURCES
+from .phase2_stats import add_stat_sources
+from .infrastructure import add_hmt_sources
+from .history import add_history_sources
+from .counties import add_geography_sources
+from .lenses import add_lens_sources
 
 REQUIRES: list[str] = []
 PRODUCES = ["sources.json"]
@@ -57,6 +62,11 @@ def build() -> None:
         ]
         out.append({**s.info.to_dict(), "vintage": _vintage(payload.get("vintage")), "files": files,
                     "used_by": sorted(users.get(s.id, []))})
+    add_stat_sources(out)
+    add_hmt_sources(out)
+    add_history_sources(out)
+    add_geography_sources(out)
+    add_lens_sources(out)
     write_web("sources.json", out)
     print(f"    {len(out)} sources, {sum(len(x['files']) for x in out)} files"
           + (f"; not used by the map (left out): {skipped}" if skipped else ""))

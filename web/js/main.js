@@ -37,7 +37,6 @@ async function loadJSON(name, optional = false) {
 
 // Optional data files (docs/DATA_CONTRACTS.md, docs/CN_PLAN.md §5). Small map-layer files are fetched right after the
 // first frame; the others only when something asks for them (app.loadData(name)). A missing file (404) loads as null.
-// Phase 1 has no military, trade, counties, citizens, districts or disasters files: nothing asks for them.
 const EAGER_DATA = ["infrastructure", "wonders"];
 const DATA_NAME = /^[a-z0-9_-]+$/;
 
@@ -45,7 +44,6 @@ const DATA_NAME = /^[a-z0-9_-]+$/;
 const snapshotModule = import("./render/snapshot.js").catch(() => null);
 
 const PANEL_W = 394; // city panel width + margins (css #city-panel)
-const TOPBAR_H = 40;
 const CACHE_MARGIN = 160; // css px of map rendered beyond each edge of the viewport, so short pans are a blit
 const PAN_LEAD = 0.6; // a pan that runs off the cache re-renders it shifted this share of the margin ahead
 const DOUBLE_MS = 260;
@@ -55,8 +53,7 @@ const isMobile = () => matchMedia("(max-width: 700px)").matches;
 async function main() {
   const [world, cities, nation, lenses, sources, resources, statesData] = await Promise.all([
     loadJSON("world"), loadJSON("cities"), loadJSON("nation"),
-    // Phase 1 publishes no lenses.json (county-level lenses are out of scope), so it is not requested at all.
-    Promise.resolve(null), loadJSON("sources", true), loadJSON("resources", true), loadJSON("states", true),
+    loadJSON("lenses", true), loadJSON("sources", true), loadJSON("resources", true), loadJSON("states", true),
   ]);
   const lensFile = lenses && Array.isArray(lenses.lenses) ? lenses : { vintage: "", groups: [], lenses: [] };
   const w = prepareWorld(world, cities, { resources });
@@ -82,6 +79,7 @@ async function main() {
   const snapshot = await snapshotModule;
 
   const canvas = document.getElementById("map");
+  const topbar = document.getElementById("topbar");
   const ctx = canvas.getContext("2d");
   const cam = new Camera(world.width, world.height);
   let dpr = 1;
@@ -440,13 +438,14 @@ async function main() {
   // `docks`: true = the docks as they are now, false = none, or a dockState()-shaped object.
   function visibleArea(panelOpen = panelShown(), docks = true) {
     const d = docks === true ? dockState() : docks || NO_DOCKS;
+    const top = topbar.offsetHeight;
     if (isMobile()) {
       const sheet = panelOpen || d.open;
-      return { x0: 0, y0: TOPBAR_H, x1: cam.w, y1: sheet ? cam.h * 0.45 : cam.h - 56 };
+      return { x0: 0, y0: top, x1: cam.w, y1: sheet ? cam.h * 0.45 : cam.h - 56 };
     }
     const dl = d.l, dr = d.r;
     const x1 = cam.w - dr - (panelOpen && cam.w > 760 ? PANEL_W : 0);
-    return { x0: Math.min(dl, x1 - 100), y0: TOPBAR_H, x1, y1: cam.h };
+    return { x0: Math.min(dl, x1 - 100), y0: top, x1, y1: cam.h };
   }
 
   // Fly so that world point (x, y) lands in the middle of the visible area at scale s.
@@ -641,7 +640,7 @@ async function main() {
           state: stateHashRef && stateHashRef.idx === state.selectedState ? stateHashRef.raw : w.raw.states[state.selectedState]?.fips,
         } : {};
       return {
-        lens: state.lens?.id || null,
+        lens: state.lens?.transient ? null : state.lens?.id || null,
         ...sel,
         // at = [x km, y km, log2(scale / home-fit scale)]; during a flight, where it will land.
         at: userMoved ? (cam.flight ? [cam.flight.x1, cam.flight.y1, Math.log2(cam.flight.s1 / fitScale())]
@@ -1198,10 +1197,9 @@ async function main() {
   }
   Object.assign(app, {
     // data. Optional files arrive via loadData(name) (and the "data" event); see docs/DATA_CONTRACTS.md.
-    data: { world, cities, states, nation, lenses: lensFile, resources, sources: sources || [], counties: null },
+    data: { world, cities, states, nation, lenses: lensFile, resources, sources: sources || [] },
     loadData,
-    // Phase 1 publishes no counties.json (county lenses are out of scope): resolve null without a request.
-    loadCounties: () => Promise.resolve(null),
+    loadCounties: () => loadData("counties"),
     w, cam, state, cityById, lensById,
     // drawing
     requestDraw,

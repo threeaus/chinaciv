@@ -34,9 +34,11 @@ from ..core.paths import WEB_DATA
 from ..core.store import load_interim, write_web
 from . import growth
 from .yields import CNY_FIELD, YIELD_KEYS, basis_value, choose_bases
+from .phase2_stats import DATA, census, population_sources, supplement_state
 
 REQUIRES = ["_world", "cn_boundaries", "cn_stats_city", "cn_city_industry", "nation.json", "resources.json"]
 PRODUCES = ["states.json"]
+LOCAL_INPUTS = [DATA / "population_2023.json", DATA / "economic_census_employment.json"]
 
 MIN_LABEL_KM, MAX_LABEL_KM = 14.0, 110.0  # suggested font height range, map km
 MAX_GROWTH = growth.MAX_GROWTH
@@ -288,21 +290,28 @@ def build() -> None:
                 "note": "；".join(notes) or None,
             }
         )
+    populations, employment = population_sources(), census()
+    for s in states:
+        supplement_state(s, populations, employment)
     window = [CENSUS_YEAR, year] if any(s["growth"] is not None for s in states) else None
     for s in states:
         s["growth_years"] = window
-    for key in YIELD_KEYS:
-        ranked = sorted((s for s in states if s["yields"][key] is not None), key=lambda s: -s["yields"][key])
-        for r, s in enumerate(ranked, 1):
-            s["ranks"][key] = r
-        for s in states:
-            s["ranks"].setdefault(key, None)
+    rank_yields(states)
     write_web("states.json", states)
     no_label = [s["name"] for s in states if not s["label"]]
     have = {k: sum(1 for s in states if s["yields"][k] is not None) for k in YIELD_KEYS}
     print(f"    {len(states)} provinces; yields present {have}; population {sum(1 for s in states if s['population'] is not None)}, "
           f"growth {sum(1 for s in states if s['growth'] is not None)}"
           + (f"; no hexes (no label anchor): {', '.join(no_label)}" if no_label else ""))
+
+
+def rank_yields(states):
+    for key in YIELD_KEYS:
+        ranked = sorted((s for s in states if s["yields"][key] is not None), key=lambda s: -s["yields"][key])
+        for s in states:
+            s["ranks"][key] = None
+        for r, s in enumerate(ranked, 1):
+            s["ranks"][key] = r
 
 
 # --- builder check (pipeline/check.py part 3) ----------------------------------------------------------------

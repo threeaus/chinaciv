@@ -19,31 +19,5 @@ export function renderTopbar(nation) {
   const check = () => el.classList.toggle("clipped", el.scrollWidth > el.clientWidth + 1);
   if (typeof ResizeObserver === "function") new ResizeObserver(check).observe(el);
   check();
-  watchBarOverflow(document.getElementById("topbar"));
   document.getElementById("turn").innerHTML = `回合 <b>${esc(nation.year ?? "")}</b> · ${esc(nation.vintage || "")}`;
-}
-
-// Phones scroll the whole bar sideways. Mark which ends have more to show (.more-l / .more-r) so CSS can fade
-// them: without a cue the yields look cut off after the second or third value.
-function watchBarOverflow(bar) {
-  if (!bar || bar.dataset.overflowWatch) return;
-  bar.dataset.overflowWatch = "1";
-  let raf = 0;
-  const update = () => {
-    raf = 0;
-    const max = bar.scrollWidth - bar.clientWidth;
-    bar.classList.toggle("more-l", max > 1 && bar.scrollLeft > 1);
-    bar.classList.toggle("more-r", max > 1 && bar.scrollLeft < max - 1);
-  };
-  const queue = () => { if (!raf) raf = requestAnimationFrame(update); };
-  bar.addEventListener("scroll", queue, { passive: true });
-  addEventListener("resize", queue);
-  if (typeof ResizeObserver === "function") {
-    const ro = new ResizeObserver(queue);
-    ro.observe(bar);
-    for (const child of bar.children) ro.observe(child);
-  }
-  // Extensions add top-bar buttons later.
-  if (typeof MutationObserver === "function") new MutationObserver(queue).observe(bar, { childList: true, subtree: true });
-  queue();
 }

@@ -130,7 +130,7 @@ def yield_defs(stats: dict, ind: dict, banner_ids: list[str], bases: dict | None
         tried = "；".join(f"{BASIS_TEXT[(key, b[0])]}仅 {_pct(h, n)} 个城市有数据" for b, h in cov[key] if b != basis)
         if key == "gold":
             desc = (f"金币 = {year} 年{BASIS_TEXT[(key, 'cny')]}，取自各市（州、盟）及各省 {year} 年国民经济和社会发展统计公报"
-                    f"（国家统计局及各地统计局；香港、澳门为特区政府统计数据折算人民币，台湾地区暂缺）。"
+                    f"（国家统计局及各地统计局；港澳与台湾地区合计取当地统计，按年均汇率折算人民币）。"
                     f"有数据的城市 {_pct(have['gdp'], n)}，其余置空（非 0）。")
         elif basis is None:
             desc = (f"{META[key]['label']}暂缺（全部置空，非 0）：按规则，每项产出须对所有城市使用同一口径，且该口径须覆盖至少 "

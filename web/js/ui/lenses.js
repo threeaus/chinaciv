@@ -20,7 +20,8 @@ export function formatLensValue(lens, v) {
   switch (lens.format) {
     case "category": return lens.categories?.[Math.round(v)]?.name ?? "无数据";
     case "usd": case "cny": case "money": return money(v);
-    case "pct": return (v * 100).toFixed(v < 0.1 ? 1 : 0) + "%";
+    case "pct": return (v * 100).toFixed(1) + "%";
+    case "signed-pct": return (v > 0 ? "+" : "") + (v * 100).toFixed(1) + "%";
     case "int": return intish(v) + (perKm2(lens) ? " 人/km²" : lens.unit ? " " + lens.unit : "");
     case "minutes": return v.toFixed(0) + " 分钟";
     case "years": return v.toFixed(1) + " 岁";
@@ -55,7 +56,7 @@ export function lensValueAt(lens, t) {
 
 const TERRAIN = { id: null, icon: "terrain", emoji: "🗺️", name: "地形" };
 const RECENT_KEY = "chinaciv.recentLenses";
-const DEFAULT_RECENT = ["density", "elevation", "forest"];
+const DEFAULT_RECENT = ["city-gdp-per-capita", "city-growth", "state-urbanization"];
 const BINS = 40;
 const HOVER_HALF = 0.08; // half-width of the hover band, in ramp units
 const QUANT = 80; // band edges snap to 1/80 of the ramp so tiny mouse moves don't re-render the map
@@ -110,7 +111,7 @@ export function initLensDock(opts) {
     moreBtn.innerHTML = `${icon("layers", "▤", { size: 15 })}<span>${inRow ? "透镜" : esc(active.name)}</span><span class="caret" aria-hidden="true">▾</span>`;
     moreBtn.title = "全部透镜（L 键循环切换）";
     moreBtn.hidden = !lenses.length;
-    quick.hidden = !lenses.length; // no lenses.json (chinaciv phase 1): a lone 地形 button would do nothing
+    quick.hidden = !lenses.length;
   }
 
   function renderPicker() {

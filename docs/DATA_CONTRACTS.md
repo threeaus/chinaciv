@@ -511,3 +511,11 @@ infrastructure.json (`cbsa`, `cell`). Update `web/js/ext/cityView` when renaming
 **Lenses.** The lens machinery (`ui/lenses.js`, `applyLens`) is kept from usaciv but idle: phase 1 ships no lenses.json,
 so the lens dock and the 透镜 Almanac page are hidden. A phase-2 lens file would follow usaciv's lenses.json shape
 (`{vintage, groups, lenses: [{id, name, group, unit, format, ramp, domain, values: [per cell]}]}`).
+## 第二阶段数据文件
+
+- `lenses.json` 的 `values` 与世界格网一一对应，`region_values` 按城市或省级编号提供相同指标。城镇化率使用 0–1 的比例，人口增长使用可带负号的比例。缺失指标用 `null`。
+- `history.json` 按地区代码与年份存放人口和现价 GDP。地级数据可用 `population_source`、`gdp_source` 链接到原表，用 `population_step` 标记原表的取整精度。港澳台的 GDP 同时保留原币、币种和年平均汇率换算信息。高铁行依次包含起点格、终点格、核实的开通或全线贯通年、线路名和来源链接。未能匹配年份的边不进入历史线路。全国高铁营业里程来自铁道统计公报。
+- `counties.json` 存放每个县区的区划代码、上级、概化边界、包围框、驻地和命中的基础地图格数。已获得常住人口等指标的县区带有 `stats`。几何和统计可分别存在。
+- `builtup.json` 的行依次为投影坐标 X、Y、建筑表面面积所在的 5 万平方米档。来自 2020 年 JRC 30 弧秒 GHS-BUILT-S 数据，按阈值提取。
+- `zones.json` 的地图点在 `zones`，名称、代表片区和官方名录可独立查看。点位用于定位。
+- `sources.json` 中 `curated: true` 表示根据正式公开资料整理。每条文件记录保留发布方链接及表名。

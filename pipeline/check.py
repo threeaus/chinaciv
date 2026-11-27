@@ -46,7 +46,7 @@ COVER_KEYS = [
 ]
 PCT_KEYS = ["forest", "crop", "pasture", "grass", "shrub", "wetland", "developed"]
 YIELD_KEYS = ["food", "production", "gold", "science", "culture"]
-LENS_FORMATS = {"int", "usd", "pct", "float", "minutes", "years", "category"}
+LENS_FORMATS = {"int", "usd", "cny", "pct", "signed-pct", "float", "minutes", "years", "category"}
 LENS_SCALES = {"log", "linear"}
 HIGHER_IS = {"good", "bad", "neutral"}
 RESOURCE_CATEGORIES = {"energy", "mineral", "agri"}
@@ -705,9 +705,10 @@ def check_sources(r: Report, doc) -> set | None:
         if s["id"] in ids:
             r.fail(f"{what}: duplicate id")
         ids.add(s["id"])
-        bad = [f for f in s["files"] if not isinstance(f, dict) or not {"file", "url", "retrieved", "sha256", "bytes"} <= f.keys()]
+        required = {"file", "url"} if s.get("curated") is True else {"file", "url", "retrieved", "sha256", "bytes"}
+        bad = [f for f in s["files"] if not isinstance(f, dict) or not required <= f.keys()]
         if bad:
-            r.fail(f"{what}: {len(bad)} file entries lack file/url/retrieved/sha256/bytes")
+            r.fail(f"{what}: {len(bad)} file entries lack {'/'.join(sorted(required))}")
         if not s["files"]:
             r.warn(f"{what}: no files cited (not fetched yet?)")
     if r.count("FAIL") == fails_before:
